@@ -6,19 +6,35 @@ function user(name, is_student) {
 };
 */
 function create_new_answer_box(){
-    let answer_label = document.createElement("label");
-    let answer_text = document.createElement("input");
-
-    answer_label.innerHTML = "Answer 2";
-    answer_label.
-    answer_label.setAttribute("for", "new_answer"+id);
+    let id = document.getElementById("create_new_answer");
+    id = id.previousElementSibling.id;
+    console.log(id);
+    id = parseInt(id[6]);
+    console.log(id);
+    if(id < 5){
+        let answer_label = document.createElement("label");
+        let answer_text = document.createElement("input");
+        
+        id++;
     
-
-    let button = document.getElementById("make_another_question");
+        answer_label.innerHTML = "Answer "+ id;
+        answer_label.id = "answer"+id;
+        answer_label.class="answer_label_class";
+        answer_label.setAttribute("for", "answer"+id);
+        
+        answer_text.type="text";
+        answer_text.id = "answer"+id;
+        answer_text.classList.add("answer_text_class");
     
-    button.parentNode.insertBefore(answer_label, button);
-    button.parentNode.insertBefore(answer_text, button);
-    button.parentNode.insertBefore(line_break, button);
+        let button = document.getElementById("create_new_answer");
+        
+        button.parentNode.insertBefore(answer_label, button);
+        button.parentNode.insertBefore(answer_text, button);
+    } else {
+        alert("Max 5     answers");
+        console.log("FAIL");
+    }
+    
 
 
 }

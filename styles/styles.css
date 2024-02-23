@@ -1,3 +1,7 @@
+body{
+    overflow: hidden;
+}
+
 .quiz_div {
     /* Your CSS styles for the div go here */
     background-color: #e0e0e0;
@@ -14,13 +18,51 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    position: absolute;
+    width: 45%;
+    left: 50%;
 }
 
 #quiz_txt_area {
-    width: 565px;
-    height: 460px;
+    width: 5%;
+    height: 5%;
 }
 
 label, input, button {
     margin-bottom: 5px; /* Add margin below labels, inputs, and buttons */
+}
+
+
+.paint{
+    position: absolute;
+    width: 40%;
+    left: 0%;
+    border: 2px SOLID Black;
+    height: 100%;
+}
+
+canvas{
+    border: 6px black;
+    width: 100%;
+    left: 0%;
+    border: 2px SOLID Black;
+    height: 50%;
+}
+
+.options{
+    display: flex;
+}
+
+.colors{
+    display: flex;
+}
+
+.color{
+    height: 50px;
+    width: 100px;
+}
+
+.colorpick{
+    height: 50px;
+    width: 100px;
 }

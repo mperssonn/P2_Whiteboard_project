@@ -5,6 +5,25 @@ function user(name, is_student) {
     this.is_student = is_student;
 };
 */
+function create_new_answer_box(){
+    let answer_label = document.createElement("label");
+    let answer_text = document.createElement("input");
+
+    answer_label.innerHTML = "Answer 2";
+    answer_label.
+    answer_label.setAttribute("for", "new_answer"+id);
+    
+
+    let button = document.getElementById("make_another_question");
+    
+    button.parentNode.insertBefore(answer_label, button);
+    button.parentNode.insertBefore(answer_text, button);
+    button.parentNode.insertBefore(line_break, button);
+
+
+}
+
+
 
 let quiz_questions = [];
 let quiz_answers = [];

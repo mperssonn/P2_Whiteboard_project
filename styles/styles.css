@@ -2,24 +2,17 @@ body{
     overflow: hidden;
 }
 
-.quiz_div {
-    /* Your CSS styles for the div go here */
-    background-color: #e0e0e0;
-    padding: 15px;
-    border: 2px solid black;
-    width: 48%;
-    height: 500px;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-}
 
 
 .quiz_container {
+    border: 2px SOLID black;
+    background-color: white;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     position: absolute;
-    width: 45%;
+    width: 48%;
+    height: 50%;
     left: 50%;
 }
 

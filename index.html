@@ -22,27 +22,22 @@
             
             <div class="quiz_div">
                 <label for="question_txt_field">Question:</label>                
-                <input type="text" id="question_txt_field">
-                <label for="answer_txt_field">Answer:</label>                
-                <input type="text" id="answer_txt_field">
+                <input type="text" id="question_txt_field"><br>
+
+                <label for="correct_answer">Correct Answer:</label>              
+                <input type="text" id="correct_answer"><br>
+                
+                <label for="answer1">Answer 1:</label>              
+                <input type="text" id="answer1"><br>
+                
+                <label for="new_answer1">new answer:</label>              
+                <input type="button" id="new_answer" onclick="create_new_answer_box()"><br>
             
-                <button id="button1">Create question & answer</button>
-                <button onclick="clearQAs()">Clear Q & A's</button>
-                <button id="button2">Start quiz</button>
-                <button onclick="end_quiz()">End quiz</button>
+                <button id="make_another_question">Create question & answer</button> <br>
+                <button onclick="clearQAs()">Clear Q & A's</button><br>
+                <button id="button2">Start quiz</button><br>
+                <button onclick="end_quiz()">End quiz</button><br>
             </div>
-
-            <div class="quiz_div">
-                <textarea id = "quiz_txt_area"></textarea>
-            </div>
-
-            <div class="quiz_div">
-            </div>
-
-            <div class="quiz_div">
-                <textarea id = "quiz_txt_area"></textarea>
-            </div>
-
         </div>
 
         <div class="paint">

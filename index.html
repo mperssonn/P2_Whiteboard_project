@@ -2,23 +2,47 @@
 <html>
 
     <head>
-        <link rel="styles/styles.css" href="styles/styles.css">
-        <script src="dropdown.js"></script>
-        <script src="users.js"></script>
-        <script src="calculator.js"></script>
-        <script src="codeeditor.js"></script>
-        <script src="paint.js"></script>
-        <script src="pausefish.js"></script>
-        <script src="timer.js"></script>
-        <script src="savepdf.js"></script>
-        <script src="quiz.js"></script>
-        <script src="server.js"></script>
-        <script src="phone.js"></script>
+        <link rel="stylesheet" href="styles/styles.css">
+        <script src="scripts/dropdown.js"></script>
+        <script src="scripts/users.js"></script>
+        <script src="scripts/calculator.js"></script>
+        <script src="scripts/codeeditor.js"></script>
+        <script src="scripts/paint.js"></script>
+        <script src="scripts/pausefish.js"></script>
+        <script src="scripts/timer.js"></script>
+        <script src="scripts/savepdf.js"></script>
+        <script defer src="scripts/quiz.js"></script>
+        <script src="scripts/server.js"></script>
+        <script src="scripts/phone.js"></script>
     </head>
     
     <body>
+        <div class="quiz_container">
+            <div class="quiz_div">
+                <label for="question_txt_field">Question:</label>                
+                <input type="text" id="question_txt_field">
+                <label for="answer_txt_field">Answer:</label>                
+                <input type="text" id="answer_txt_field">
+            
+                <button id="button1">Create question & answer</button>
+                <button onclick="clearQAs()">Clear Q & A's</button>
+                <button id="button2">Start quiz</button>
+                <button onclick="end_quiz()">End quiz</button>
+            </div>
+            <div class="quiz_div">
 
+                <textarea id = "quiz_txt_area"></textarea>
+
+            </div>
+            
+            <div class="quiz_div">
+            </div>
+
+            <div class="quiz_div">
+                <textarea id = "quiz_txt_area"></textarea>
+            </div>
+
+        </div>
     </body>
-
 </html>
 

@@ -1,0 +1,26 @@
+.quiz_div {
+    /* Your CSS styles for the div go here */
+    background-color: #e0e0e0;
+    padding: 15px;
+    border: 2px solid black;
+    width: 48%;
+    height: 500px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+
+.quiz_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#quiz_txt_area {
+    width: 565px;
+    height: 460px;
+}
+
+label, input, button {
+    margin-bottom: 5px; /* Add margin below labels, inputs, and buttons */
+}

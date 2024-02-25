@@ -1,8 +1,7 @@
 let quiz_questions = [];
 let quiz_answers = [];
-quiz_answers.push([]);
-quiz_answers.push([]);
 let user_answer = [];
+let answer_fields_generated = 0;
 const question_txt_field = document.getElementById('question_txt_field');
 const answer_txt_field = document.getElementById('correct_answer');
 const quiz_txt_area = document.getElementById('quiz_txt_area');
@@ -19,15 +18,12 @@ let question_number_createQA = 0;
 const create_QAs_button = document.getElementById('create_QAs');
 const start_quiz_button = document.getElementById('start_quiz');
 
-//quiz_answers = [[0, 1, 2], [3, 4, 5]];
 
 
 function create_new_answer_box(){
     let id = document.getElementById("create_new_answer");
     id = id.previousElementSibling.id;
-    console.log(id);
     id = parseInt(id[6]);
-    console.log(id);
     if(id < 5){
         let str = "answer" + id;
         let answer_label = document.createElement("label");
@@ -48,9 +44,9 @@ function create_new_answer_box(){
         
         button.parentNode.insertBefore(answer_label, button);
         button.parentNode.insertBefore(answer_text, button);
-
+        
     } else {
-        alert("Max 5     answers");
+        alert("Max 5 answers");
         console.log("FAIL");
     }
 
@@ -59,7 +55,8 @@ function create_new_answer_box(){
     answer3_txt_field = document.getElementById('answer3');
     answer4_txt_field = document.getElementById('answer4');
     answer5_txt_field = document.getElementById('answer5');
-
+    answer_fields_generated = id;
+    console.log(answer_fields_generated);
 }
 
 create_QAs_button.addEventListener('click', () => {
@@ -72,11 +69,32 @@ create_QAs_button.addEventListener('click', () => {
     question_txt_field.value = "";
     answer_txt_field.value = "";
     answer0_txt_field.value = "";
-    answer1_txt_field.value = "";
-    answer2_txt_field.value = "";
-    answer3_txt_field.value = "";
-    answer4_txt_field.value = "";
-    answer5_txt_field.value = "";
+    if (answer_fields_generated == 1) {
+        answer1_txt_field.value = "";
+    }
+    if (answer_fields_generated == 2) {
+        answer1_txt_field.value = "";
+        answer2_txt_field.value = "";
+    }
+    if (answer_fields_generated == 3) {
+        answer1_txt_field.value = "";
+        answer2_txt_field.value = "";
+        answer3_txt_field.value = "";
+    }
+    if (answer_fields_generated == 4) {
+        answer1_txt_field.value = "";
+        answer2_txt_field.value = "";
+        answer3_txt_field.value = "";
+        answer4_txt_field.value = "";
+    }
+    if (answer_fields_generated == 5) {
+        answer5_txt_field.value = "";
+        answer1_txt_field.value = "";
+        answer2_txt_field.value = "";
+        answer3_txt_field.value = "";
+        answer4_txt_field.value = "";
+    }
+
 });
 
 start_quiz_button.addEventListener('click', () => {
@@ -89,35 +107,67 @@ start_quiz_button.addEventListener('click', () => {
 
 function create_quiz_q_a() {
     quiz_questions.push(question_txt_field.value);
+    quiz_answers.push([]);
     quiz_answers[question_number_createQA].push(answer_txt_field.value);
 
     if (answer0_txt_field.value) {
         quiz_answers[question_number_createQA].push(answer0_txt_field.value);
     }
-    if (answer1_txt_field.value) {
-        quiz_answers[question_number_createQA].push(answer0_txt_field.value);
+    if (answer_fields_generated == 1) {
+        if (answer1_txt_field.value) {
+            quiz_answers[question_number_createQA].push(answer1_txt_field.value);
+        }
     }
-    if (answer2_txt_field.value) {
-        quiz_answers[question_number_createQA].push(answer0_txt_field.value);
+    if (answer_fields_generated == 2) {
+        if (answer1_txt_field.value) {
+            quiz_answers[question_number_createQA].push(answer1_txt_field.value);
+        }
+        if (answer2_txt_field.value) {
+            quiz_answers[question_number_createQA].push(answer2_txt_field.value);
+        }
     }
-    if (answer3_txt_field.value) {
-        quiz_answers[question_number_createQA].push(answer0_txt_field.value);
+    if (answer_fields_generated == 3) {
+        if (answer1_txt_field.value) {
+            quiz_answers[question_number_createQA].push(answer1_txt_field.value);
+        }
+        if (answer2_txt_field.value) {
+            quiz_answers[question_number_createQA].push(answer2_txt_field.value);
+        }
+        if (answer3_txt_field.value) {
+            quiz_answers[question_number_createQA].push(answer3_txt_field.value);
+        }
     }
-    if (answer4_txt_field.value) {
-        quiz_answers[question_number_createQA].push(answer0_txt_field.value);
+    if (answer_fields_generated == 4) {
+        if (answer1_txt_field.value) {
+            quiz_answers[question_number_createQA].push(answer1_txt_field.value);
+        }
+        if (answer2_txt_field.value) {
+            quiz_answers[question_number_createQA].push(answer2_txt_field.value);
+        }
+        if (answer3_txt_field.value) {
+            quiz_answers[question_number_createQA].push(answer3_txt_field.value);
+        }
+        if (answer4_txt_field.value) {
+            quiz_answers[question_number_createQA].push(answer4_txt_field.value);
+        }
     }
-    if (answer5_txt_field.value) {
-        quiz_answers[question_number_createQA].push(answer0_txt_field.value);
+    if (answer_fields_generated == 5) {
+        if (answer1_txt_field.value) {
+            quiz_answers[question_number_createQA].push(answer1_txt_field.value);
+        }
+        if (answer2_txt_field.value) {
+            quiz_answers[question_number_createQA].push(answer2_txt_field.value);
+        }
+        if (answer3_txt_field.value) {
+            quiz_answers[question_number_createQA].push(answer3_txt_field.value);
+        }
+        if (answer4_txt_field.value) {
+            quiz_answers[question_number_createQA].push(answer4_txt_field.value);
+        }
+        if (answer5_txt_field.value) {
+            quiz_answers[question_number_createQA].push(answer5_txt_field.value);
+        }
     }
-    
-
-
-    //quiz_answers[question_number_createQA].push(answer_txt_field.value);
-    //quiz_answers.push(answer_txt_field.value);
-    //quiz_questions.push();
-    //quiz_answers[[question_number_createQA, 0]] = answer_txt_field.value;
-    //quiz_answers[[question_number_createQA, 1]] = answer_txt_field.value;
-    //quiz_answers = [create_QAs_button[0]];
     question_number_createQA++;
 }
 
@@ -158,9 +208,8 @@ function end_quiz() {
             str += quiz_answers[i][j] + ", ";
         }
         console.log(str);
-
+        str = "";
     }
-
 }
 
 function clearQAs() {

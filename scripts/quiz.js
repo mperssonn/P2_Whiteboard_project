@@ -7,6 +7,7 @@ const answer_txt_field = document.getElementById('correct_answer');
 const quiz_txt_area = document.getElementById('quiz_txt_area');
 const answer0_txt_field = document.getElementById('answer0');
 
+
 let answer1_txt_field;
 let answer2_txt_field;
 let answer3_txt_field; 
@@ -56,7 +57,6 @@ function create_new_answer_box(){
     answer4_txt_field = document.getElementById('answer4');
     answer5_txt_field = document.getElementById('answer5');
     answer_fields_generated = id;
-    console.log(answer_fields_generated);
 }
 
 create_QAs_button.addEventListener('click', () => {
@@ -97,13 +97,12 @@ create_QAs_button.addEventListener('click', () => {
 
 });
 
-start_quiz_button.addEventListener('click', () => {
-    let i = 0;
-    quiz_answers.forEach(question => {
-        add_radio(i);
-        i++;
-    });
-});
+function clear_fields() {
+    // tilføj funktion der laver alle felters .value om til = "";
+    // eller måske bare specifikke felter, måske dem der er blevet genereret, eller dem der allerede har value i sig
+}
+
+
 
 function create_quiz_q_a() {
     quiz_questions.push(question_txt_field.value);
@@ -171,10 +170,36 @@ function create_quiz_q_a() {
     question_number_createQA++;
 }
 
-function add_radio(question) {
-
+start_quiz_button.addEventListener('click', () => {
+    var temp_divider;
     const container = document.getElementById('radioChoices');
+    var newDivider = document.createElement('div');
+    let i = 0;
+    quiz_answers.forEach(question => {
+        newDivider.id = 'divider' + (i + 1);
+        container.appendChild(newDivider);
+        add_question(i);
+        add_radio(i);
+        i++;
+    });
+});
 
+function add_question(question) {
+    temp_divider = document.getElementById('divider' + (question + 1));
+    question += 1;
+    var pElement = document.createElement('p');
+    pElement.textContent = "Question " + question + ":"
+    temp_divider.appendChild(pElement);
+    //container.appendChild(pElement);
+} 
+
+// var divider = document.getElementById('divider');
+// if (divider) {
+//     divider.parentNode.removeChild(divider);
+// }
+
+function add_radio(question) {
+    temp_divider = document.getElementById('divider' + (question + 1));
     quiz_answers[question].forEach(choice => {    
         const radio = document.createElement('input');
         radio.type = 'radio';
@@ -184,10 +209,11 @@ function add_radio(question) {
         const label = document.createElement('label');
         label.textContent = choice;
 
-        container.appendChild(radio);
-        container.appendChild(label);
+        temp_divider.appendChild(radio);
+        temp_divider.appendChild(label);
 
-        container.appendChild(document.createElement('br'));
+        temp_divider.appendChild(document.createElement('br'));
+        
     });
 }
 
@@ -210,6 +236,11 @@ function end_quiz() {
         console.log(str);
         str = "";
     }
+    var i = 0;
+    quiz_questions.forEach(radio_box => {
+        temp_divider = document.getElementById('divider' + i);
+    });
+
 }
 
 function clearQAs() {
